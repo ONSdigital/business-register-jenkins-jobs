@@ -19,7 +19,9 @@ Before Jenkins configuration can be generated from the source code the SEED job 
 - checkout source code of this project from GitHub repository
 - generate CI configuration for Business Register project
 
-To see sample configuration of the SEED job please check attached [screenshot](docs/seed-job-configuration).
+Sample job configuration is presented below:
+
+![screenshot](docs/seed-job-configuration.png).
 
 ## How to generate CI configuration
 
