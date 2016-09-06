@@ -5,6 +5,8 @@ sourceSets {
         groovy {
             srcDirs 'jobs'
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
     }
 }
 
@@ -18,4 +20,5 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.7'
     compile 'org.jenkins-ci.plugins:job-dsl-core:1.50'
+    compile 'com.google.guava:guava:19.0'
 }

@@ -1,17 +1,13 @@
-// GitHub
-def organisation = 'ONSDigital'
-def defaultBranch = 'master'
-
 job('Business Register - seed') {
     scm {
-        github(organisation + '/business-register-jenkins-jobs', defaultBranch)
+        github('ONSDigital/business-register-jenkins-project.jobs', 'master')
     }
     triggers {
         scm 'H/5 * * * *'
     }
     steps {
         dsl {
-            external 'jobs/**/jobs.groovy'
+            external 'jobs/project/**/*.groovy'
             additionalClasspath 'src/main/groovy'
         }
     }
