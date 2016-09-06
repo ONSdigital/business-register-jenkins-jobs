@@ -10,7 +10,9 @@ class JobBuilder {
 
     Project project;
     Project[] upstreamProjects;
+
     String buildCommand;
+    String buildArtifact;
 
     void build(DslFactory factory) {
         factory.job(removeWhitespaces("${Constraints.projectFolder}/${project.name}")) {
@@ -29,6 +31,9 @@ class JobBuilder {
             }
             steps {
                 shell(buildCommand)
+            }
+            publishers {
+                archiveArtifacts(buildArtifact)
             }
         }
     }
