@@ -30,7 +30,7 @@ class JobBuilder {
                 }
             }
             steps {
-                shell(buildCommand)
+                shell(buildCommand.replace('sbt', 'sbt -Dsbt.log.noformat=true'))
             }
             publishers {
                 archiveJunit('**/target/test-reports/*.xml') {
