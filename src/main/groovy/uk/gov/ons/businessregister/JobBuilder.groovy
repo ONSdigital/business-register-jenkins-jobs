@@ -33,6 +33,9 @@ class JobBuilder {
                 shell(buildCommand)
             }
             publishers {
+                archiveJunit('**/target/test-reports/*.xml') {
+                    allowEmptyResults()
+                }
                 archiveArtifacts(buildArtifact)
             }
         }

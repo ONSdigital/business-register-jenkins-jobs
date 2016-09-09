@@ -5,14 +5,14 @@ import uk.gov.ons.businessregister.domain.Project
 
 new JobBuilder(
         project: Project.TestUtils,
-        buildCommand: './bin/sbt clean +publishLocal',
+        buildCommand: './bin/sbt clean test +publishLocal',
         buildArtifact: 'target/scala-2.*/test-utils_2.*.jar'
 ).build(this)
 
 new JobBuilder(
         project: Project.BusinessLibs,
         upstreamProjects: [Project.TestUtils],
-        buildCommand: './bin/sbt clean +publishLocal',
+        buildCommand: './bin/sbt clean test +publishLocal',
         buildArtifact: 'target/scala-2.*/business-core_2.*.jar'
 ).build(this)
 
@@ -39,12 +39,12 @@ new JobBuilder(
 new JobBuilder(
         project: Project.BusinessIndexApi,
         upstreamProjects: [Project.BusinessLibs],
-        buildCommand: 'cd ons-business-api; ./bin/sbt clean dist',
+        buildCommand: 'cd ons-business-api; ./bin/sbt clean test dist',
         buildArtifact: '*/target/universal/business-index-api-*.zip'
 ).build(this)
 
 new JobBuilder(
         project: Project.BusinessIndexFrontend,
-        buildCommand: 'cd ons-business-frontend; ./bin/sbt clean dist',
+        buildCommand: 'cd ons-business-frontend; ./bin/sbt clean test dist',
         buildArtifact: '*/target/universal/business-index-frontend-*.zip'
 ).build(this)
