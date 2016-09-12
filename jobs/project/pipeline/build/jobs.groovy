@@ -19,8 +19,8 @@ new JobBuilder(
 new JobBuilder(
         project: Project.BusinessIndexExporter,
         upstreamProjects: [Project.BusinessLibs],
-        buildCommand: './bin/sbt clean assembly',
-        buildArtifact: 'target/scala-2.*/business-index-exporter-assembly-*.jar'
+        buildCommand: './bin/sbt clean test dist',
+        buildArtifact: 'target/universal/business-index-exporter-*.zip'
 ).build(this)
 
 new JobBuilder(
